@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatort</title>
+</head>
+<body>
+    <script>
+        let action = prompt("What do you want to do? (add, sub, mul, div)");
+        let number1 = Number(prompt("Enter the first number"));
+        let number2 = Number(prompt("Enter the second number"));
+        let result;
+
+        if (action === 'add') 
+        {
+            result = number1 + number2;  
+        } 
+        else if (action === 'sub') 
+        {
+            result = number1 - number2; 
+        } 
+        
+        else if (action === 'mul') 
+        {
+            result = number1 * number2;
+        } 
+       
+        else if (action === 'div') 
+        {
+            result = number1 / number2;
+        } 
+       
+        else 
+        {
+            alert("You entered a value incorrectly. Try again.");
+        }
+
+        if (result !== undefined) 
+        {
+            alert(`${number1} ${action} ${number2} = ${result}`);
+        }
+    </script>
+</body>
+</html>
