@@ -26,7 +26,6 @@ arr.forEach((element, index) => {
         } else {
             countOddPositive++;
             sumOddPositive += element;
-        
         }
     } else {
         countNegative++;
