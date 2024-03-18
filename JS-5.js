@@ -18,12 +18,15 @@ arr.forEach((element, index) => {
         sumPositive += element;
         countPositive++;
         productPositive *= element;
+       
         if (element % 2 === 0) {
             countEvenPositive++;
             sumEvenPositive += element;
+        
         } else {
             countOddPositive++;
             sumOddPositive += element;
+        
         }
     } else {
         countNegative++;
