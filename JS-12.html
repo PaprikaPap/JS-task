@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        .slider-container {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .slider-image {
+            display: none;
+            width: 100%;
+        }
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <img src="image1.jpg" alt="Image 1" class="slider-image">
+        <img src="image2.jpg" alt="Image 2" class="slider-image" style="display: none;">
+        <img src="image3.jpg" alt="Image 3" class="slider-image" style="display: none;">
+        <div class="slider-buttons">
+            <button id="prevBtn">Prev</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+
+    <script>
+    const images = document.querySelectorAll('.slider-image');
+    let currentImageIndex = 0;
+
+    function showImage(index) {
+        images[currentImageIndex].style.display = 'none';
+        images[index].style.display = 'block';
+        currentImageIndex = index;
+        updateButtons();
+    }
+
+    function showNextImage() {
+        let nextIndex = currentImageIndex + 1;
+        
+        if (nextIndex === images.length) {
+        nextIndex = 0;
+        }
+        showImage(nextIndex);
+    }
+
+    function showPrevImage() {
+        let prevIndex = currentImageIndex - 1;
+        
+        if (prevIndex === -1) {
+        prevIndex = images.length - 1;
+        }
+        showImage(prevIndex);
+    }
+
+    function updateButtons() {
+        document.getElementById('prevBtn').style.display = currentImageIndex === 0 ? 'none' : 'block';
+        document.getElementById('nextBtn').style.display = currentImageIndex === images.length - 1 ? 'none' : 'block';
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', showPrevImage);
+    document.getElementById('nextBtn').addEventListener('click', showNextImage);
+
+    images[currentImageIndex].style.display = 'block';
+    updateButtons();
+    </script>
+</body>
+</html>
