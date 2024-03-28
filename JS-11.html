@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div on Focus</title>
+    <style>
+        #message {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="myInput">
+    <div id="message">DIV is visible when input is focused</div>
+
+    <script>
+        document.getElementById('myInput').addEventListener('focus', function() {
+            document.getElementById('message').style.display = 'block';
+        });
+
+        document.getElementById('myInput').addEventListener('blur', function() {
+            document.getElementById('message').style.display = 'none';
+        });
+        
+    </script>
+</body>
+</html>
