@@ -5,7 +5,7 @@ const screenWidth = window.screen.width;
 
         const backButton = document.getElementById('backButton');
         backButton.addEventListener('click', () => {
-            window.location.href = 'https://github.com/PaprikaPap/JS-task/blob/main/JS-13-1.html';
+            window.location.href = 'https://github.com/PaprikaPap/JS-task/blob/master/JS-13-1.html';
 
         });
 
