@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Оформлення замовлення</title>
+    <link rel="stylesheet" type="text/css" href="JS-14.css">
+</head>
+<body>
+    <h1>Оформлення замовлення</h1>
+    <div id="error-message"></div>
+    <form id="order-form">
+        <label for="name">ПІБ покупця:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="city">Місто:</label><br>
+        <select id="city" name="city" required>
+            <option value="Київ">Київ</option>
+            <option value="Одеса">Одеса</option>
+            <option value="Львів">Львів</option>
+        </select><br><br>
+
+        <label for="nova-poshta">Склад Нової пошти:</label><br>
+        <select id="nova-poshta" name="nova-poshta" required></select><br><br>
+
+        <label>Оплата:</label><br>
+        <input type="radio" id="payment-cash" name="payment" value="Післяплата" required>
+        <label for="payment-cash">Післяплата</label><br>
+        <input type="radio" id="payment-card" name="payment" value="Оплата карткою" required>
+        <label for="payment-card">Оплата карткою</label><br><br>
+
+        <label for="quantity">Кількість продукції:</label><br>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+        <label for="comment">Коментар до замовлення:</label><br>
+        <textarea id="comment" name="comment"></textarea><br><br>
+
+        <input type="submit" value="Підтвердити замовлення">
+    </form>
+    <div id="order-details"></div>
+
+    <script src="JS-14.js"></script>
+</body>
+</html>
