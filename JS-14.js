@@ -3,6 +3,13 @@ const citySelect = document.getElementById('city');
         const orderForm = document.getElementById('order-form');
         const orderDetails = document.getElementById('order-details');
         const errorMessage = document.getElementById('error-message');
+        const buyButton = document.getElementById('buy-button');
+        const orderTitle = document.getElementById('order-title');
+
+        buyButton.addEventListener('click', function () {
+            orderForm.style.display = 'block';
+            orderTitle.style.display = 'block';
+        });
 
         citySelect.addEventListener('change', function () {
             const selectedCity = citySelect.value;
@@ -36,10 +43,10 @@ const citySelect = document.getElementById('city');
                         "Львів, вул. Грінченка, 2а(до 30 кг)",
                         "Львів, вул. Кульпарківська, 142(до 30 кг)",
                         "Львів, вул. Городоцька, 120(до 30 кг)",
-                        
+
                     ]);
                     break;
-               
+                    
                 default:
                     break;
             }
@@ -54,17 +61,49 @@ const citySelect = document.getElementById('city');
             });
         }
 
+        const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
+        const emailInput = document.getElementById('email');
+        const nameRegex = /^[А-ЯҐЄІЇ][а-яґєії]+\s[А-ЯҐЄІЇ][а-яґєії]+\s[А-ЯҐЄІЇ][а-яґєії]+$/;
+        const phoneRegex = /^[+()0-9-]{10,20}$/;
+        const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+        function validateName() {
+            if (!nameRegex.test(nameInput.value)) {
+                errorMessage.textContent = 'Некоректне ПІБ';
+                return false;
+            }
+            return true;
+        }
+
+        function validatePhone() {
+            if (!phoneRegex.test(phoneInput.value)) {
+                errorMessage.textContent = 'Некоректний номер телефону';
+                return false;
+            }
+            return true;
+        }
+
+        function validateEmail() {
+            if (!emailRegex.test(emailInput.value)) {
+                errorMessage.textContent = 'Некоректний email';
+                return false;
+            }
+            return true;
+        }
+
         orderForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            if (!orderForm.checkValidity()) {
-                errorMessage.textContent = 'Будь ласка, заповніть всі обов\'язкові поля';
+            if (!validateName() || !validatePhone() || !validateEmail()) {
                 return;
             }
 
-            const name = document.getElementById('name').value;
-            const city = document.getElementById('city').value;
-            const novaPoshta = document.getElementById('nova-poshta').value;
+            const name = nameInput.value;
+            const phone = phoneInput.value;
+            const email = emailInput.value;
+            const city = citySelect.value;
+            const novaPoshta = novaPoshtaSelect.value;
             const payment = document.querySelector('input[name="payment"]:checked').value;
             const quantity = document.getElementById('quantity').value;
             const comment = document.getElementById('comment').value;
@@ -74,6 +113,8 @@ const citySelect = document.getElementById('city');
             orderDetails.innerHTML = `
                 <h2>Інформація про замовлення:</h2>
                 <p><strong>ПІБ покупця:</strong> ${name}</p>
+                <p><strong>Телефон:</strong> ${phone}</p>
+                <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Місто:</strong> ${city}</p>
                 <p><strong>Склад Нової пошти:</strong> ${novaPoshta}</p>
                 <p><strong>Оплата:</strong> ${payment}</p>
