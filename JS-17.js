@@ -3,7 +3,9 @@ $(document).ready(function() {
         $('#myModal').show();
     });
 
-    $('#closeModal').click(function() {
-        $('#myModal').hide();
+    $('#myModal').click(function(event) {
+        if ($(event.target).is('#myModal')) {
+            $('#myModal').hide();
+        }
     });
 });
