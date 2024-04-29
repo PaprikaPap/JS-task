@@ -12,15 +12,15 @@ const degElem = document.getElementById('deg');
 const iconElem = document.getElementById('icon');
         
 const weatherIcons = {
-    '01d': 'JS/01d.jpg',
-    '02d': 'JS/02d.jpg',
-    '03d': 'JS/03d.jpg',
-    '04d': 'JS/04d.jpg',
-    '09d': 'JS/09d.jpg',
-    '10d': 'JS/10d.jpg',
-    '11d': 'JS/11d.jpg',
-    '13d': 'JS/13d.jpg',
-    '50d': 'JS/50d.jpg'
+    '01d': '01d.jpg',
+    '02d': '02d.jpg',
+    '03d': '03d.jpg',
+    '04d': '04d.jpg',
+    '09d': '09d.jpg',
+    '10d': '10d.jpg',
+    '11d': '11d.jpg',
+    '13d': '13d.jpg',
+    '50d': '50d.jpg'
     };
         
     fetch(url)
