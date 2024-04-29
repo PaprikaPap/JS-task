@@ -1,9 +1,9 @@
 $(document).ready(function() {
     $('#openModal').click(function() {
-        $('#myModal').show();
+        $('#myModal').css('display', 'block');
     });
 
     $('#closeModal').click(function() {
-        $('#myModal').hide();
+        $('#myModal').css('display', 'none');
     });
 });
